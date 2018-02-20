@@ -1,4 +1,4 @@
-#!C:\Users\c.alvarez\AppData\Local\Programs\Python\Python36\python.exe
+#!C:\PATH\FOR\PYTHON\python.exe
 #
 # Script for finding information on oozie web API regarding some workflows
 # @author	Cristian Gómez Alvarez <cristianpark@gmail.com>
