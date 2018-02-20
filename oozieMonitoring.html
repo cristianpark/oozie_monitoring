@@ -1,0 +1,93 @@
+<!--
+# Main file for oozie jobs monitoring
+# @author	Cristian Gómez Alvarez <cristianpark@gmail.com>
+#
+# Licensed under Creative Commons Attribution 4.0 International. https://creativecommons.org/licenses/by/4.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Oozie Jobs Monitoring</title>
+</head>
+
+<style>
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+	padding-left: 1em;
+    padding-right: 1em;
+    border-color: white;
+}
+</style>
+
+<body>
+
+<h1>Workflow Analysis</h1><br /><br />
+
+<div style="padding-left: 10em;">
+<form method="POST" action="coordinatorsMonitoring.py">
+	<table style="border-collapse: collapse;" border="2">
+		<tr>
+			<th>Select the status</th>
+			<td>
+				<select name="SLstatus" style="width:100%">
+					<option>RUNNING</option>
+					<option>SUCCEEDED</option>
+					<option>KILLED</option>
+					<option>DONEWITHERROR</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Max jobs to search in</th>
+			<td>
+				<input type="text" id="ITjobsNumber" name="ITjobsNumber" size="50" value="500" />
+			</td>
+		</tr>
+		<tr>
+			<th>Select the workflow to analyse</th>
+			<td>
+				<select id="SLworkflows" name="SLworkflows" multiple size="10" style="width:100%">
+					<option selected>my-first-workflow</option>
+					<option selected>my-first-workflow</option>
+				</select>
+			</td>
+		</tr>			
+		<tr>
+			<th colspan="2">OR</th>
+		</tr>
+		<tr>
+			<th>Custom Workflow Name</th>
+			<td>
+				<input type="text" id="ITworkflow" name="ITworkflow" size="50" placeholder="Custom-workflow-name" />
+			</td>
+		</tr>
+		<tr>
+			<td align="center" style="padding-top: 1em; padding-bottom: 1em;">
+				<button onclick="clearFilters(); return false;" style="font-size:1.5em;">Clear</button>
+			</td>
+			<td align="center" style="padding-top: 1em; padding-bottom: 1em;">
+				<input type="submit" name="SBQuery" value="Query" style="font-size:1.5em;" />
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+
+<script language="JavaScript">
+	function clearFilters(){
+		document.getElementById("SLworkflows").value='';
+		document.getElementById("ITworkflow").value='';
+	}
+</script>
+</body>
+</html>
